@@ -14,16 +14,6 @@ Moving the source file to the archive sits in its own `try/catch` and the error 
 
 **Fix:** before reserving a number, look up the source file id in registry column D (`sourceFileId`) and refuse if it is already there.
 
-### 2 · The verification page shows the file name
-
-**Where:** the Worker's verification page, and `Verify.html` · **Severity:** high (privacy)
-
-Both pages print the stored file name. Real names in the registry look like `23-ward — VM-PDF-2026-000012.pdf`. Anyone who scans the QR sees that string. If a file name ever carries a patient, ward or diagnosis, this is a disclosure of personal medical information on a page reachable by anyone.
-
-The page does not need it. Document number, date and organisation are enough to compare a paper against the record.
-
-**Fix:** remove the file-name row from both pages. One line each.
-
 ### 3 · The registry and settings sheets are unprotected
 
 **Where:** Google Sheets · **Severity:** medium
@@ -95,7 +85,6 @@ Each verification reads the entire `A2:P` range. At tens of thousands of rows th
 | When | Work | Effort |
 | --- | --- | --- |
 | Today | Fill in every settings key; protect both sheets | 10 min |
-| Today | Remove the file name from both verification pages (#2) | 10 min |
 | This week | Guard against double approval by source file id (#1) | 1–2 h |
 | This week | Test with a large Word file and a multi-page PDF | 30 min |
 | Next | Fix `listPending_` ordering (#4), QR placement (#6) | 1 h |
@@ -104,7 +93,7 @@ Each verification reads the entire `A2:P` range. At tens of thousands of rows th
 
 ---
 
-## Fixed during the rewrite
+## Fixed
 
 Kept here because the reasoning is worth more than the diff.
 
@@ -119,3 +108,5 @@ Kept here because the reasoning is worth more than the diff.
 **No way to revoke.** A wrongly issued document used to stay authentic forever. There is now a `STATUS` column, a revocation flow with a mandatory reason, and two independent checks — at `/v/` and again at `/file/` — so a still-valid signed link cannot outlive a revocation.
 
 **Health endpoint was public.** `/_health/google` reported whether the Google credentials worked. It is no longer routed; the function remains for wiring behind an authenticated path.
+
+**The public page printed the file name.** Registry names look like `23-ward — VM-PDF-2026-000012.pdf`, and both `/v/` states rendered that string to anyone who scanned the QR — a disclosure of personal medical information on an anonymous endpoint. The row is gone from the Worker's valid and revoked pages and from `Verify.html`; document number, date and organisation are what a paper is actually compared against.
