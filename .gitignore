@@ -27,3 +27,5 @@ Thumbs.db
 # Local scratch
 tmp/
 *.log
+
+push-to-github.ps1
