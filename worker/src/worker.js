@@ -474,7 +474,6 @@ async function renderValid(data, env, origin) {
   const clinic = escapeHtml(clinicName_(env));
   const host = escapeHtml(String(env.OFFICIAL_HOST || ""));
   const docNo = escapeHtml(data.docNo || "");
-  const fileName = escapeHtml(data.fileName || "");
   const createdAt = escapeHtml(data.createdAt || "");
 
   /* The registry stores the approver's Google account. That is internal
@@ -567,11 +566,6 @@ body {
         <div class="label">Hujjat raqami</div>
         <div class="value">${docNo}</div>
       </div>
-      ${fileName ? `
-      <div class="row">
-        <div class="label">Hujjat nomi</div>
-        <div class="value">${fileName}</div>
-      </div>` : ""}
       ${createdAt ? `
       <div class="row">
         <div class="label">Tasdiqlangan sana</div>
@@ -607,7 +601,6 @@ function renderRevoked(data, env) {
   const clinic = escapeHtml(clinicName_(env));
   const host = escapeHtml(String(env.OFFICIAL_HOST || ""));
   const docNo = escapeHtml(data.docNo || "");
-  const fileName = escapeHtml(data.fileName || "");
   const createdAt = escapeHtml(data.createdAt || "");
   const revokedAt = escapeHtml(data.revokedAt || "");
   const revokedBy = escapeHtml(signerName_(env));
@@ -681,11 +674,6 @@ body {
       <div class="row">
         <div class="label">Hujjat raqami</div>
         <div class="value">${docNo}</div>
-      </div>` : ""}
-      ${fileName ? `
-      <div class="row">
-        <div class="label">Hujjat nomi</div>
-        <div class="value">${fileName}</div>
       </div>` : ""}
       ${createdAt ? `
       <div class="row">
