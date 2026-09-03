@@ -2,6 +2,7 @@
 
 > Tamper-evident QR verification for clinical PDF documents — Google Workspace Add-on for issuing, Cloudflare Worker for public verification, and a private PDF gateway that never exposes a Google Drive link.
 
+[![CI](https://github.com/Mardonaka05/vivamed-qr-verification/actions/workflows/ci.yml/badge.svg)](https://github.com/Mardonaka05/vivamed-qr-verification/actions/workflows/ci.yml)
 [![Apps Script](https://img.shields.io/badge/Google_Apps_Script-4285F4?logo=google&logoColor=white)](https://developers.google.com/apps-script)
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare_Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](#)
