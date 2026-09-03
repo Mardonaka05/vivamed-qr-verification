@@ -160,6 +160,8 @@ Production-ready core; deployed for a clinic in Tashkent. Verified in testing:
 - `REVOKED` document → blocked at both `/v/` and `/file/`
 - Legacy migration: 8 files checked, 6 public permissions removed, 0 errors
 
+- One high-severity issue is still open: a document can be approved twice if the archive move fails, which would put one document in the registry under two numbers. It is written up, with the fix, in [`docs/en/07-known-issues.md`](docs/en/07-known-issues.md).
+
 ## Setup
 
 See [`docs/en/06-deployment.md`](docs/en/06-deployment.md) for the full walkthrough: Google Cloud project and Service Account, Shared Drive folder structure, registry spreadsheet, Apps Script deployment, DNS delegation and the Worker custom domain.
