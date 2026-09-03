@@ -1,0 +1,29 @@
+# Secrets — never commit
+*.pem
+*.key
+*service-account*.json
+service_account*.json
+.dev.vars
+.env
+.env.*
+!.env.example
+
+# Cloudflare / Wrangler
+.wrangler/
+node_modules/
+dist/
+
+# clasp (Apps Script CLI)
+.clasp.json
+.clasprc.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local scratch
+tmp/
+*.log

@@ -1,0 +1,26 @@
+name = "vivamed-verify"
+main = "src/worker.js"
+compatibility_date = "2026-01-01"
+
+# The Worker answers only on the hostname configured below. Bind the
+# custom domain in the Cloudflare dashboard:
+#   Workers & Pages → <worker> → Domains → Add Domain
+#
+# routes = [
+#   { pattern = "verify.example.com", custom_domain = true }
+# ]
+
+[vars]
+OFFICIAL_HOST = "verify.example.com"
+CLINIC_NAME = "VivaMed Center"
+SIGNER_NAME = ""
+GOOGLE_SHEETS_ID = ""
+APPROVED_FOLDER_ID = ""
+
+# Secrets are NOT set here. Create them from the CLI:
+#
+#   npx wrangler secret put GCP_SERVICE_ACCOUNT_JSON
+#   npx wrangler secret put FILE_TICKET_SECRET
+#
+# FILE_TICKET_SECRET should be a long random string, e.g.
+#   openssl rand -base64 48

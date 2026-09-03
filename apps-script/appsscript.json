@@ -1,0 +1,52 @@
+{
+  "timeZone": "Asia/Tashkent",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "dependencies": {
+    "enabledAdvancedServices": [
+      {
+        "userSymbol": "Drive",
+        "serviceId": "drive",
+        "version": "v3"
+      }
+    ]
+  },
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/drive",
+    "https://www.googleapis.com/auth/drive.addons.metadata.readonly",
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/gmail.send",
+    "https://www.googleapis.com/auth/script.external_request",
+    "https://www.googleapis.com/auth/script.scriptapp",
+    "https://www.googleapis.com/auth/userinfo.email"
+  ],
+  "urlFetchWhitelist": [
+    "https://unpkg.com/pdf-lib@1.17.1/",
+    "https://api.qrserver.com/v1/create-qr-code/"
+  ],
+  "webapp": {
+    "executeAs": "USER_DEPLOYING",
+    "access": "ANYONE_ANONYMOUS"
+  },
+  "addOns": {
+    "common": {
+      "name": "VivaMed Hujjat",
+      "logoUrl": "https://placehold.co/128x128/0B6B5B/FFFFFF/png?text=VM",
+      "layoutProperties": {
+        "primaryColor": "#0B6B5B",
+        "secondaryColor": "#0B6B5B"
+      },
+      "homepageTrigger": {
+        "runFunction": "onHomePage"
+      }
+    },
+    "drive": {
+      "homepageTrigger": {
+        "runFunction": "onHomePage"
+      },
+      "onItemsSelectedTrigger": {
+        "runFunction": "onDriveItemsSelected"
+      }
+    }
+  }
+}
