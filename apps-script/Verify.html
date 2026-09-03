@@ -10,9 +10,7 @@
   containing <script> is harmless. The unescaped <?!= ... ?> form is not
   used anywhere.
 
-  KNOWN ISSUE: this page prints rec.fileName. If file names carry patient
-  or ward information, anyone who scans the QR sees it. The document
-  number, date and organisation are enough — see docs/en/07-known-issues.md.
+    The file name is deliberately not rendered: registry names can carry patient or ward information, and this page is reachable by anyone who scans the QR. Document number, date and organisation are what a paper is compared against.
 -->
 <!DOCTYPE html>
 <html lang="uz">
@@ -135,11 +133,6 @@
     <div class="no"><?= rec.docNo ?></div>
 
     <dl>
-      <div class="row">
-        <dt>Fayl</dt>
-        <dd><?= rec.fileName ?></dd>
-      </div>
-
       <div class="row">
         <dt>Yaratilgan</dt>
         <dd><?= createdAt ?></dd>
